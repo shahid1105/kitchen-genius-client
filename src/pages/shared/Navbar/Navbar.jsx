@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../../../assets/images/chef-logo.png";
 
 const Navbar = () => {
   const navOptions = (
@@ -19,7 +20,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar fixed  z-10 bg-base-400 bg-opacity-40 max-w-screen-xl">
+      <div className="navbar fixed  z-10 bg-base-400 bg-opacity-40 max-w-screen-xl text-white font-bold">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,6 +45,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl italic">
+            <img className="h-10 w-10 rounded-sm" src={logo} alt="" />
             Kitchen Genius
           </Link>
         </div>
