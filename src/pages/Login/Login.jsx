@@ -17,7 +17,7 @@ const Login = () => {
   return (
     <>
       <div>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-gradient-to-r from-purple-200 to-indigo-400">
           <div className="hero-content flex-col lg:flex-row">
             <div className="card max-w-sm shadow-2xl bg-base-100">
               <form onSubmit={handleSubmit(handleLogin)} className="card-body">
