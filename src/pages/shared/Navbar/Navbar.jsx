@@ -77,9 +77,13 @@ const Navbar = () => {
                 className="btn btn-active btn-ghost btn-sm text-black">
                 Log Out
               </button>
-              <div className="avatar">
-                <div className="w-10 ms-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={user?.image} />
+              <div
+                className="tooltip tooltip-left"
+                data-tip={user?.displayName}>
+                <div className="avatar">
+                  <div className="w-10 ms-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img src={user?.photoURL} />
+                  </div>
                 </div>
               </div>
             </>
