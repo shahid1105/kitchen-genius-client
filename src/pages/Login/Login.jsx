@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import GoogleLogin from "./GoogleLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
   const {
@@ -9,9 +11,18 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const { signIn } = useContext(AuthContext);
+
   const handleLogin = (data) => {
     const { email, password } = data;
-    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
