@@ -1,18 +1,15 @@
+import banner from "../../../assets/images/banner-2.jpg";
 const Banner = () => {
   return (
-    <div>
-      <div className="hero min-h-screen" style={{ marginRight: 12 + "em" }}>
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-            <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
-          </div>
+    <div className="bg-gradient-to-r from-purple-200 to-indigo-400 pt-16">
+      <div className="flex gap-16">
+        <div className="w-1/2">
+          <img className="mt-12 ps-24 mb-12 rounded" src={banner} alt="" />
+        </div>
+        <div className="w-1/2  mt-10">
+          <p className="md:text-[70px] md:ps-8 md:font-bold lg:text-[70px] lg:ps-8 lg:font-bold">
+            Meet your new favorite <br /> cookbook.
+          </p>
         </div>
       </div>
     </div>

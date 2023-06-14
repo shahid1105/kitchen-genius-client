@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import footerLogo from "../../../assets/images/chef-logo.png";
 const Footer = () => {
   return (
-    <div className=" bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold">
+    <div className=" bg-gradient-to-l from-purple-400 to-indigo-400 font-semibold mt-12">
       <footer className="footer p-10 text-white">
         <div>
-          <img className="h-10 w-10 rounded-full" src={footerLogo} alt="" />
+          <img
+            className="h-10 w-10 rounded-full mb-4"
+            src={footerLogo}
+            alt=""
+          />
           <p>
             Kitchen Genius
             <br />
