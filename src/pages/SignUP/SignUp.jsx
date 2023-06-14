@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import GoogleLogin from "../Login/SocialLogin/GoogleLogin";
 import GithubLogin from "../Login/SocialLogin/GithubLogin";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
@@ -12,13 +13,31 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        if (loggedUser) {
+          updateUserProfile({
+            displayName: data.name,
+            photoURL: data.photoURL,
+          });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Login successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate(from, { replace: true });
+        }
       })
       .catch((error) => {
         console.log(error);

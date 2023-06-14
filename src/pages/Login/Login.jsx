@@ -11,6 +11,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm();
 
   const location = useLocation();
@@ -37,6 +38,10 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        setError("password", {
+          type: "manual",
+          message: "Email address or password is incorrect",
+        });
       });
   };
 
@@ -72,7 +77,11 @@ const Login = () => {
                     className="input input-bordered"
                   />
                   {errors.password && (
-                    <span className="text-red-500">Password is required</span>
+                    <span className="text-red-500">
+                      {errors.password.type === "required"
+                        ? "Password is required"
+                        : errors.password.message}
+                    </span>
                   )}
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
