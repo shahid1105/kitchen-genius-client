@@ -29,12 +29,14 @@ const router = createBrowserRouter([
         element: <Chef></Chef>,
       },
       {
-        path: "chefRecipes",
+        path: "chefRecipes/:id",
         element: (
           <ProtectedRoutes>
             <ChefRecipes></ChefRecipes>
           </ProtectedRoutes>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/chefs-details/${params.id}`),
       },
     ],
   },

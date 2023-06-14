@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li className="text-black gradient from-purple-400 to-indigo-400">
+      <li className="text-black gradient from-purple-400 to-indigo-400 ">
         <Link to="/">Home</Link>
       </li>
       <li className="text-black">

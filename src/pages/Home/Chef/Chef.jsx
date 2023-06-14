@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Chef = () => {
   const [chefs, setChefs] = useState([]);
-  console.log(chefs);
+  // console.log(chefs);
 
   useEffect(() => {
     fetch("http://localhost:5000/chefs")
@@ -56,7 +56,10 @@ const Chef = () => {
                 {chef?.likes}
               </p>
               <div className="card-actions">
-                <Link to="/chefRecipes">
+                <Link
+                  to={{
+                    pathname: `/chefRecipes/${chef._id}`,
+                  }}>
                   <button className="btn bg-gradient-to-r from-purple-400 to-indigo-400 text-white font-bold">
                     View Recipes
                   </button>
