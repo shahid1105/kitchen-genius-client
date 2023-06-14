@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/chef-logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const navOptions = (
     <>
       <li className="text-black gradient from-purple-400 to-indigo-400">
@@ -57,38 +69,27 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
-        <div className="navbar-end">
-          <Link to="/login">
-            {" "}
-            <button>Login</button>
-          </Link>
-
-          {/* <label
-            tabIndex={0}
-            className="btn btn-ghost btn-sm btn-circle avatar mr-4">
-            <div className="navbar-end pr-4">
-              {user ? (
-                <>
-                  <button
-                    onClick={handleLogOut}
-                    className="btn btn-active btn-ghost btn-sm">
-                    Log Out
-                  </button>
-                  <div className="avatar">
-                    <div className="w-10 ms-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                      <img src={user?.photoURL} />
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <Link to="/login" className="btn btn-active btn-ghost">
-                    Login
-                  </Link>
-                </>
-              )}
-            </div>
-          </label> */}
+        <div className="navbar-end pr-4">
+          {user ? (
+            <>
+              <button
+                onClick={handleLogOut}
+                className="btn btn-active btn-ghost btn-sm">
+                Log Out
+              </button>
+              <div className="avatar">
+                <div className="w-10 ms-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={user?.photoURL} />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="btn btn-active btn-ghost">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
