@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Chef = () => {
   const [chefs, setChefs] = useState([]);
@@ -19,7 +20,7 @@ const Chef = () => {
   return (
     <div className="md:mt-12 lg:mt-16">
       <h3 className="md:text-3xl lg:text-3xl font-bold italic text-center">
-        --- All Chefs Here ---
+        --- Our Chefs ---
       </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
@@ -55,9 +56,11 @@ const Chef = () => {
                 {chef?.likes}
               </p>
               <div className="card-actions">
-                <button className="btn bg-gradient-to-r from-purple-400 to-indigo-400 text-white font-bold">
-                  View Recipes
-                </button>
+                <Link to="/chefRecipes">
+                  <button className="btn bg-gradient-to-r from-purple-400 to-indigo-400 text-white font-bold">
+                    View Recipes
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
