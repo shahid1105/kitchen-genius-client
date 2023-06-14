@@ -21,7 +21,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li className="text-black">
-        <Link to="/">Blog</Link>
+        <Link to="/blog">Blog</Link>
       </li>
       <li className="text-black">
         <Link to="/">Contact</Link>

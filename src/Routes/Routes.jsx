@@ -6,11 +6,13 @@ import SignUp from "../pages/SignUP/SignUp";
 import Chef from "../pages/Home/Chef/Chef";
 import ChefRecipes from "../pages/ChefRecipes/ChefRecipes";
 import ProtectedRoutes from "./ProtectedRoutes";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
