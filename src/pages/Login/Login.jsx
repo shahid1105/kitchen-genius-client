@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import GoogleLogin from "./GoogleLogin";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import GithubLogin from "./SocialLogin/GithubLogin";
+import GoogleLogin from "./SocialLogin/GoogleLogin";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const {
@@ -10,6 +12,11 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const { signIn } = useContext(AuthContext);
 
@@ -19,6 +26,14 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -28,7 +43,7 @@ const Login = () => {
   return (
     <>
       <div>
-        <div className="hero min-h-screen bg-gradient-to-r from-purple-200 to-indigo-400">
+        <div className="hero min-h-screen bg-gradient-to-r from-purple-200 to-indigo-400 pt-16">
           <div className="hero-content flex-col lg:flex-row">
             <div className="card max-w-sm shadow-2xl bg-base-100">
               <form onSubmit={handleSubmit(handleLogin)} className="card-body">
@@ -82,6 +97,7 @@ const Login = () => {
                 </small>
               </p>
               <GoogleLogin></GoogleLogin>
+              <GithubLogin></GithubLogin>
             </div>
           </div>
         </div>

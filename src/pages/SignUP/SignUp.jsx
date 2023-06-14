@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import GoogleLogin from "../Login/GoogleLogin";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import GoogleLogin from "../Login/SocialLogin/GoogleLogin";
+import GithubLogin from "../Login/SocialLogin/GithubLogin";
 
 const SignUp = () => {
   const {
@@ -26,7 +27,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="hero min-h-screen bg-gradient-to-r from-purple-200 to-indigo-400 ">
+      <div className="hero min-h-screen bg-gradient-to-r from-purple-200 to-indigo-400 pt-16">
         <div className="hero-content">
           <div className="text-center"></div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -114,6 +115,7 @@ const SignUp = () => {
               </small>
             </p>
             <GoogleLogin></GoogleLogin>
+            <GithubLogin></GithubLogin>
           </div>
         </div>
       </div>
