@@ -39,7 +39,9 @@ const router = createBrowserRouter([
           </ProtectedRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chefs-details/${params.id}`),
+          fetch(
+            `https://kitchen-genius-server-theta.vercel.app/chefs-details/${params.id}`
+          ),
       },
       {
         path: "blogs",

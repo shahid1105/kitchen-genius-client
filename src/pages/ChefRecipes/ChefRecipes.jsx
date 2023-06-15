@@ -34,7 +34,7 @@ const ChefRecipes = () => {
       <section className="h-[600px] bg-gradient-to-l from-zinc-400 to-cyan-300 rounded-lg  ">
         <div className="flex gap-12">
           <div className="w-1/2">
-            <LazyLoad height={762} width={400} threshold={0.95}>
+            <LazyLoad height={762} width={400} threshold={0.1}>
               <img
                 className="h-[500px] w-[100%]  rounded-md pt-16 ps-16"
                 src={chefRecipes.chefPicture}
