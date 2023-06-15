@@ -51,36 +51,41 @@ const Navbar = () => {
               {navOptions}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl italic">
+          <Link to="/" className="btn btn-ghost normal-case text-xl italic ">
             <img
-              className="h-10 w-10 rounded-sm hidden md:block lg:block"
+              className="h-10 w-10 rounded-sm hidden md:block lg:block "
               src={logo}
               alt=""
             />
-            <span className="text-blue-500 font-bold md:text-2xl lg:mt-2xl">
+            <span className="text-blue-500 text-[10px] font-semibold md:font-bold  lg:font-bold md:text-2xl lg:mt-2xl ">
               Kitchen
-            </span>{" "}
-            <span className="text-red-500 font-bold md:text-2xl lg:mt-2xl">
+            </span>
+            <span className="text-red-500 font-semibold md:font-bold  lg:font-bold md:text-2xl lg:mt-2xl">
               Genius
             </span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+          <ul className="menu  menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end pr-4">
           {user ? (
             <>
               <button
                 onClick={handleLogOut}
-                className="btn btn-active btn-ghost btn-sm text-black">
+                className="text-[10px] px-[4px] py-[2px] rounded-md btn-active btn-ghost  text-black block md:hidden lg:hidden">
+                Log Out
+              </button>
+              <button
+                onClick={handleLogOut}
+                className="btn btn-active btn-ghost btn-sm text-black hidden md:block lg:block">
                 Log Out
               </button>
               <div
                 className="tooltip tooltip-left"
                 data-tip={user?.displayName}>
                 <div className="avatar">
-                  <div className="w-10 ms-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <div className="w-5 md:w-10 lg:w-10 ms-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={user?.photoURL} />
                   </div>
                 </div>

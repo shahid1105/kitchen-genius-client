@@ -18,12 +18,12 @@ const Chef = () => {
   }, []);
 
   return (
-    <div className="md:mt-12 lg:mt-16">
+    <div className="mt-8 md:mt-12 lg:mt-16">
       <h3 className="md:text-3xl lg:text-3xl font-bold italic text-center">
         --- Our Chefs ---
       </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:mt-8 lg:mt-8">
         {chefs.map((chef) => (
           <div key={chef._id} className="card w-[100%] bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">

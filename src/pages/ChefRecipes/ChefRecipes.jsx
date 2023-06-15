@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FcLike } from "react-icons/fc";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import LazyLoad from "react-lazy-load";
 
 const ChefRecipes = () => {
   //   const [disabled, setDisabled] = useState(false);
@@ -33,11 +34,13 @@ const ChefRecipes = () => {
       <section className="h-[600px] bg-gradient-to-l from-zinc-400 to-cyan-300 rounded-lg  ">
         <div className="flex gap-12">
           <div className="w-1/2">
-            <img
-              className="h-[500px] w-[100%]  rounded-md pt-16 ps-16"
-              src={chefRecipes.chefPicture}
-              alt=""
-            />
+            <LazyLoad height={762} width={400} threshold={0.95}>
+              <img
+                className="h-[500px] w-[100%]  rounded-md pt-16 ps-16"
+                src={chefRecipes.chefPicture}
+                alt=""
+              />
+            </LazyLoad>
           </div>
           <div className="w-1/2">
             <div className="pt-16 ps-16">
